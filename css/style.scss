@@ -182,3 +182,35 @@ body{
     }
   }
 }
+
+
+.theerd__section{
+  padding-bottom: 100px;
+  .container{
+    h2{
+      padding-bottom: 20px;
+    }
+    p{
+      padding-bottom: 20px;
+    }
+    .theerd__section-content{
+      ul{
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        li{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          a{
+            background-color: #b3adcc;
+            padding: 8px;
+            border-radius: 10px 20px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}

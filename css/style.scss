@@ -135,3 +135,50 @@ body{
     }
 }
 
+
+.second__section{
+  padding-bottom: 100px;
+  h2{
+    text-align: center;
+    .second__section-content-box{
+      .second__section-content-inner{
+        display: flex;
+        flex-wrap: wrap;
+        .brands__item a {
+          padding: 1rem;
+        }
+        
+        .brands__item img {
+          width: 130px;
+          object-fit: contain;
+          aspect-ratio: 2/1;
+        }
+      }
+    }
+  }
+}
+
+.test__sect{
+  padding-bottom: 100px;
+  .container{
+    h2{
+      padding-bottom: 20px;
+    }
+    .content-section{
+      .test{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .brands__item a {
+          background-color: #b3adcc;
+
+            .brands__item img {
+            width: 130px;
+            object-fit: contain;
+            aspect-ratio: 2/1;
+          }
+        }
+      }
+    }
+  }
+}

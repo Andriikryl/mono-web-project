@@ -123,4 +123,45 @@ body {
 }
 .first__section .first__section-content .first__section-content-img-box .cube > div:nth-child(6) {
   transform: translate3d(-100px, 0px, 100px) rotateY(90deg);
+}
+
+.second__section {
+  padding-bottom: 100px;
+}
+.second__section h2 {
+  text-align: center;
+}
+.second__section h2 .second__section-content-box .second__section-content-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+.second__section h2 .second__section-content-box .second__section-content-inner .brands__item a {
+  padding: 1rem;
+}
+.second__section h2 .second__section-content-box .second__section-content-inner .brands__item img {
+  width: 130px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  aspect-ratio: 2/1;
+}
+
+.test__sect {
+  padding-bottom: 100px;
+}
+.test__sect .container h2 {
+  padding-bottom: 20px;
+}
+.test__sect .container .content-section .test {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.test__sect .container .content-section .test .brands__item a {
+  background-color: #b3adcc;
+}
+.test__sect .container .content-section .test .brands__item a .brands__item img {
+  width: 130px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  aspect-ratio: 2/1;
 }/*# sourceMappingURL=style.css.map */

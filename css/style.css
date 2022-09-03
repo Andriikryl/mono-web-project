@@ -29,6 +29,11 @@ html {
 body {
   --mono-main: #b3adcc;
   --mono-back: #1e1b2c;
+  overflow-x: hidden;
+}
+
+.stop-scroll {
+  overflow: hidden;
 }
 
 .main__content {
@@ -36,17 +41,109 @@ body {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 1024px) {
+  .main__content .nav--visible {
+    transform: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main__content nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    overflow-y: auto;
+    background: linear-gradienthsla(0deg, 0%, 100%, 0.1);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+    transition: transform 0.6s ease-in-out;
+  }
+}
 .main__content nav ul {
   display: flex;
+}
+@media screen and (max-width: 1024px) {
+  .main__content nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 .main__content nav ul li {
   padding-right: 20px;
 }
+@media screen and (max-width: 1024px) {
+  .main__content nav ul li {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+}
 .main__content .main__content-second-part {
   display: flex;
 }
+@media screen and (max-width: 1024px) {
+  .main__content .main__content-second-part {
+    display: none;
+  }
+}
 .main__content .main__content-second-part li {
   padding-right: 20px;
+}
+.main__content .burger--active .burger__line {
+  opacity: 0;
+}
+.main__content .burger--active::before {
+  bottom: auto;
+  top: 5%;
+  transform: rotate(45deg);
+}
+.main__content .burger--active::after {
+  bottom: auto;
+  top: 5%;
+  transform: rotate(-45deg);
+}
+.main__content .burger {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+  display: none;
+}
+.main__content .burger::after, .main__content .burger::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #b3adcc;
+  transition: transform 0.3s ease-in-out;
+}
+.main__content .burger::before {
+  top: 0;
+}
+.main__content .burger::after {
+  bottom: 0;
+}
+.main__content .burger .burger__line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #b3adcc;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease-in-out;
+}
+@media screen and (max-width: 1024px) {
+  .main__content .burger {
+    display: block;
+    position: relative;
+    z-index: 12;
+  }
 }
 
 .first__section {

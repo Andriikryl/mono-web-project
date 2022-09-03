@@ -14,6 +14,12 @@ li{
     list-style: none;
 }
 
+@mixin max-screen($res) {
+  @media screen and (max-width: $res) {
+    @content;
+  }
+}
+
 
 .container{
     max-width: 1240px;
@@ -32,25 +38,118 @@ html {
 body{
     --mono-main: #b3adcc;
     --mono-back: #1e1b2c;
+    overflow-x: hidden;
+}
+
+.stop-scroll{
+  overflow: hidden;
 }
 
 .main__content{
     padding-block: 20px;
     display: flex;
     justify-content: space-between;
+    .nav--visible{
+      @include max-screen (1024px){
+			transform: none;	
+			}
+    }
     nav{
+      @include max-screen (1024px){
+			position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 10;
+      overflow-y: auto;
+      background: linear-gradienthsla(0deg, 0%, 100%, 0.1) ;
+      backdrop-filter: blur(5px);
+      width: 100%;
+      // max-width: 300px;
+      height: 100vh;
+
+      transform: translateX(100%);
+      transition: transform 0.6s ease-in-out;
+			}
         ul{
             display: flex;
+            @include max-screen (1024px){
+
+              flex-direction: column;
+              align-items: flex-start;
+            }
             li{
                 padding-right: 20px;
+                @include max-screen (1024px){
+                  margin-bottom: 30px;
+                  width: 100%;
+                }
             }
         }
     }
     .main__content-second-part{
         display: flex;
+        @include max-screen (1024px){
+				display: none;
+        }
         li{
             padding-right: 20px;
         }
+    }
+    .burger--active .burger__line{
+      opacity: 0;
+    }
+    .burger--active{
+      &::before{
+        bottom: auto;
+        top: 5%;
+        transform: rotate(45deg);
+      }
+      &::after{
+        bottom: auto;
+        top: 5%;
+        transform: rotate(-45deg);
+      }
+    }
+
+    .burger{
+      position: relative;
+      width: 30px;
+      height: 20px;
+      border: 0;
+      cursor: pointer;
+      background-color: transparent;
+      display: none;
+      &::after,
+      &::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #b3adcc;
+        transition: transform 0.3s ease-in-out;
+      }
+      &::before{
+        top: 0;
+      }
+      &::after{
+        bottom: 0;
+      }
+      .burger__line{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 2px;
+        background-color:#b3adcc;
+        transform: translateY(-50%);
+        transition: opacity 0.3s ease-in-out;
+      }
+      @include max-screen (1024px){
+				display: block;
+        position: relative;
+        z-index: 12;
+			}
     }
 }
 
